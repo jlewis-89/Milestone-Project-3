@@ -19,6 +19,36 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
+@app.route("/community")
+def community():
+    return render_template("community.html")
+
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
+
+
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
+
+@app.route("/search")
+def search():
+    return render_template("search.html")
+
+
 def myfunc():
     return None
 
