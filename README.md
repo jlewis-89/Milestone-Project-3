@@ -28,15 +28,30 @@ The platform will act like a online community of "Dragons Den" helping users to 
 ## Developer Goals
 
 ## Tools & Technologies Used
+### Software
+Figma
+DALL.E 3
+VS-Code
+### Frameworks
+Materialize Framework
+Flask Framework
+###Languages
+HTML / CSS / JS / Python
 
 ## Design
 
 ### UI
-Wireframes
-Navigation
-Imagery
-Typography
-Colour scheme - WebAIM Accessibility
+#### Wireframes
+#### Navigation
+- Navbar takedn from the Materialize CSS framework
+#### Imagery
+- Logo imagery created by DALL.E 3 and the edited with MS Photo Editor
+#### Typography
+- Montserrat is a versatile and modern font with good readibility
+- Roboto is a clean and widely used font that complements Montserrat well
+#### Colour scheme - WebAIM Accessibility
+- Navy Blue #001F3F - This colour represents trust and professionalism
+- Teal #39CCCC - Adds a fresh and approachable tone 
 
 ### UX
 As a user I want to ...
@@ -98,6 +113,7 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
 ## Credit
+Logo generated via DALL.E 3 AI
 ### Acknowledgement
 ### Resources
 ### Assets
