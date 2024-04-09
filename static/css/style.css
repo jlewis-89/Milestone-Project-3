@@ -7,17 +7,11 @@ Colour Pallete
 Navy Blue #001F3F
 Teal #39CCCC 
 */
-
-body {
-    font-family: "Monntserrat", sans-serif;
-    background-color: #eceff1;
-}
-
 h1,
 h2,
 h3 {
     font-family: "Roboto", sans-serif;
-
+    font-weight: 300;
 }
 
 .img-responsive {
@@ -25,4 +19,22 @@ h3 {
     width: auto;
     max-height: 72px;
     max-width: 250px;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: "Monntserrat", sans-serif;
+    background-color: #eceff1;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.page-footer {
+    background-color: #001f3f;
+    color: white;
+    padding: 20px 0;
 }
