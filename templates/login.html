@@ -16,12 +16,13 @@
                     <input type="text" placeholder="Username" name="username">
                     <label for="password">Password</label>
                     <input type="password" placeholder="Password" name="password">
-                    <button type="submit" value="Login">Login</button>
+                    <button class="btn waves-effect waves-light" type="submit" name="login">Login
+                        <i class="material-icons right">send</i>
+                    </button>
                 </form>
                 <a href="{{ url_for('register') }}">Not already a User? Register here</a>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock %}
