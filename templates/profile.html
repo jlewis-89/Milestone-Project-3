@@ -9,6 +9,19 @@
         <h3>Followed Ideas</h3>
     </div>
 </div>
+<div class="container">
+    <h3>Account Details</h3>
+    <form action="" method="POST">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="15"
+            pattern="^[a-zA-Z0-9]{5-15}$" required>
+        <label for="email">Email</label>
+        <input name="email" type="email">{{ email }}</input>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" class="validate" minlength="5" maxlength="15"
+            pattern="^[a-zA-Z0-9]{5-15}$" required>
+    </form>
+</div>
 
 
 {% endblock %}
