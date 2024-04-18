@@ -82,7 +82,7 @@ def login():
             # username doesnt match
             flash("Username or password incorrect")
             return redirect(url_for("login"))
-    return render_template("login.html")
+    return render_template("profile.html")
 
 
 @app.route("/logout")
@@ -98,50 +98,58 @@ def search():
     return render_template("search.html")
 
 
+@app.route("/ideas")
+def ideas():
+    return render_template("ideas.html")
+
+
 @app.route("/get_ideas")
 def get_ideas():
-    ideas = list(mongo.db.ideas.find().sort("date", -1))
-    return render_template("ideas.html", ideas=ideas)
+    idea = list(mongo.db.idea.find().sort("date", -1))
+    return render_template("ideas.html", idea=idea)
 
 
 @app.route("/add_ideas", methods=["GET", "POST"])
 def add_ideas():
     if request.method == "POST":
-        ideas = {
-            "category_name": request.form.get("category_name"),
-            "idea_name": request.form.get("idea_name"),
-            "idea_description": request.form.get("idea_description"),
+        idea = {
+            "title": request.form.get("title"),
+            "description": request.form.get("description"),
+            "valuation": request.form.get("valuation"),
+            "invest": request.form.get("invest"),
             "created_by": session["user"]
         }
-        mongo.db.ideas.insert_one(ideas)
+        mongo.db.ideas.insert_one(idea)
         flash("Idea Successfully Added")
         return redirect(url_for("get_ideas"))
 
-    categories = mongo.db.ideas.find().sort("ideas", 1)
-    return render_template("ideas.html", ideas=ideas)
-
-
-@app.route("/edit_ideas/<ideas_id>", methods=["GET", "POST"])
-def edit_ideas(ideas_id):
-    idea = mongo.db.ideas.find_one({"_id": ObjectId(ideas_id)})
-
-    if request.method == "POST":
-        submit = {
-            "idea_name": request.form.get("idea_name"),
-            "idea_description": request.form.get("idea_description"),
-            "created_by": session["user"]
-        }
-        mongo.db.ideas.update({"_id": ObjectId(ideas_id)}, submit)
-        flash("Idea Successfully Updated")
-        return redirect(url_for("get_ideas"))
-
-    ideas = mongo.db.ideas.find().sort("ideas", 1)
+    categories = mongo.db.idea.find().sort("idea", 1)
     return render_template("ideas.html", idea=idea)
 
 
-@app.route("/delete_ideas/<ideas_id>")
-def delete_ideas(ideas_id):
-    mongo.db.ideas.delete_one({"_id": ObjectId(ideas_id)})
+@app.route("/edit_ideas/<idea_id>", methods=["GET", "POST"])
+def edit_ideas(idea_id):
+    idea = mongo.db.idea.find_one({"_id": ObjectId(idea_id)})
+
+    if request.method == "POST":
+        submit = {
+            "title": request.form.get("title"),
+            "description": request.form.get("description"),
+            "valuation": request.form.get("valuation"),
+            "invest": request.form.get("invest"),
+            "created_by": session["user"]
+        }
+        mongo.db.idea.update({"_id": ObjectId(idea_id)}, submit)
+        flash("Idea Successfully Updated")
+        return redirect(url_for("get_ideas"))
+
+    idea = mongo.db.idea.find().sort("idea", 1)
+    return render_template("ideas.html", idea=idea)
+
+
+@app.route("/delete_ideas/<idea_id>")
+def delete_ideas(idea_id):
+    mongo.db.idea.delete_one({"_id": ObjectId(idea_id)})
     flash("Idea Successfully Deleted")
     return redirect(url_for("get_ideas"))
 

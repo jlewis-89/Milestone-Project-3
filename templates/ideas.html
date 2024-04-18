@@ -11,12 +11,15 @@
             </div>
             <div class="card-action">
                 <form action="">
+                    <label for="title">Idea Title</label>
+                    <input type="text" placeholder="Write about your idea here" name="title" minlength="10" pattern="^[a-zA-Z0-9]$">
                     <label for="description">Description</label>
                     <input type="text" placeholder="Write about your idea here" name="description" minlength="10" pattern="^[a-zA-Z0-9]$">
-                    <input type="text" placeholder="Business Valuation £" name="valuation" pattern="^[£,$,0-9]$">
+                    <label for="valuation">Valuation</label>
+                    <input type="text" placeholder="Value in £" name="valuation" pattern="^[£,$,0-9]$">
                     <div class="switch">
                         <label>Seeking Investment
-                            <input type="checkbox">
+                            <input type="checkbox" name="invest">
                             <span class="lever"></span>
                             YES
                         </label>
