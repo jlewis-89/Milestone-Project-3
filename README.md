@@ -54,13 +54,28 @@ HTML / CSS / JS / Python
 - Teal #39CCCC - Adds a fresh and approachable tone 
 
 ### UX
-As a user I want to ...
+As a user I want to be able to view all the ideas on the website
+As a user I want to be able to create my own ideas and post them to the website
+As a user I want to be able to edit and delete my ideas on the website
+As a user I would like to be able to edit and delete my user account
+As a user I would like to be able to change the email registered to my account
+As a user I would like to be the only onje who can edit or delte my ideas
+As a user I would like to be the only oner who can edit or delete my account
 
 ## Features
+The website features include:
+- Usere profiles to register and loginm
+- Ideas to view the community of ideas
+- Profile to change any profile specific details
+- Create edit and delete users own ideas
+
 
 ## Testing
 ### Alpha Testing
 ### Validators HTML/CSS/JS
+
+-Python code has been checked for PEP8 compliance and formatted appropriately
+
 ### Bugs & Fixes
 
 ## API's
@@ -111,6 +126,9 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ```
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+
+### Hosting via Heroku
+Log in to Heroku
 
 ## Credit
 Logo generated via DALL.E 3 AI

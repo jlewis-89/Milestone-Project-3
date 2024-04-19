@@ -82,7 +82,31 @@ def login():
             # username doesnt match
             flash("Username or password incorrect")
             return redirect(url_for("login"))
-    return render_template("profile.html")
+    return render_template("login.html")
+
+
+@app.route("/edit_user/<username>", methods=["GET", "POST"])
+def edit_user(username):
+    if request.method == "POST":
+        submit = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.user.update({"username": username}, submit)
+        flash("Profile Successfully Updated")
+        session["user"] = request.form.get("username").lower()
+        return redirect(url_for("profile", username=session["user"]))
+
+    user = mongo.db.user.find_one({"username": username})
+    return render_template("edit_user.html", user=user)
+
+
+@app.route("/delete_user/<username>")
+def delete_user(username):
+    mongo.db.user.delete_one({"username": username})
+    flash("Profile Successfully Deleted")
+    session.pop("user")
+    return redirect(url_for("register"))
 
 
 @app.route("/logout")
