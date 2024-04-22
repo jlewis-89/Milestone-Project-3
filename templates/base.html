@@ -23,8 +23,9 @@
                     <li><a href="{{ url_for('about') }}">Home</a></li>
                     <li><a href="{{ url_for('search') }}">Search</a></li>
                     {% if session.user %}
-                    <li><a href="{{ url_for('profile') }}">My Board</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">My Board</a></li>
                     <li><a href="{{ url_for('ideas') }}">My Ideas</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% endif %}
                     <li><a href="{{ url_for('community') }}">Community</a></li>
                     <li><a href="{{ url_for('login') }}">Login / Register</a></li>
@@ -36,14 +37,28 @@
             <li><a href="{{ url_for('about') }}">Home</a></li>
             <li><a href="{{ url_for('search') }}">Search</a></li>
             {% if session.user %}
-            <li><a href="{{ url_for('profile') }}">My Board</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}">My Board</a></li>
             <li><a href="{{ url_for('ideas') }}">My Ideas</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
             {% endif %}
             <li><a href="{{ url_for('community') }}">Community</a></li>
             <li><a href="{{ url_for('login') }}">Login / Register</a></li>
         </ul>
 
     </header>
+    <section>
+        <!-- flash message  -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="light-blue darken-2 center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+    </section>
     <main class="container">
         {% block content %}
         {% endblock %}
