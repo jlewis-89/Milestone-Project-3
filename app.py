@@ -29,14 +29,10 @@ def community():
     return render_template("community.html")
 
 
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
-
-
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    username = mongo.db.user.find_one(
+    # grab user sessions user name
+    username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
     if session["user"]:
@@ -64,7 +60,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("profile.html", username=session["user"]))
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
 
@@ -72,26 +68,25 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        existing_user = mongo.db.user.find_one(
+        existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
             # check password hash
-            if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
+            if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for("profile", username=session["user"]))
             else:
                 # invalid username or password
-                # Remove P after fault finding
-                flash("Username or password incorrect P")
+                flash("Username or password incorrect")
                 return redirect(url_for("login"))
+
         else:
             # username doesnt match
-            # remove U after fault finding
-            flash("Username or password incorrect U")
+            flash("Username or password incorrect")
             return redirect(url_for("login"))
+
     return render_template("login.html")
 
 

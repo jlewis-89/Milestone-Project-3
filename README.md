@@ -62,6 +62,39 @@ As a user I would like to be able to change the email registered to my account
 As a user I would like to be the only onje who can edit or delte my ideas
 As a user I would like to be the only oner who can edit or delete my account
 
+### Data Schema
+* Users Collection:
+* Attributes:
+- username: A unique identifier for each user.
+- password: The user’s password (hashed and salted for security).
+* Ideas Collection:
+* Attributes:
+- description: A detailed description of the idea
+- title: A concise title for the idea
+- valuation: The estimated value or potential impact of the idea
+- created by: The user who originated the idea
+- invest: Would you invest in the idea Yes or No
+
+#### JSON
+
+{
+  "users": [
+    {
+      "username": "string",
+      "password": "string"
+    }
+  ],
+  "ideas": [
+    {
+      "description": "string",
+      "title": "string",
+      "valuation": "number",
+      "created_by": "reference to user",
+      "invest": "Yes or No"
+    }
+  ]
+}
+
 ## Features
 The website features include:
 - Usere profiles to register and loginm
