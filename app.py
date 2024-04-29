@@ -134,7 +134,7 @@ def ideas():
 
 @app.route("/get_ideas")
 def get_ideas():
-    idea = list(mongo.db.idea.find().sort("date", -1))
+    idea = list(mongo.db.ideas.find().sort("date", -1))
     return render_template("ideas.html", idea=idea)
 
 
@@ -152,13 +152,13 @@ def add_ideas():
         flash("Idea Successfully Added")
         return redirect(url_for("get_ideas"))
 
-    categories = mongo.db.idea.find().sort("idea", 1)
+    categories = mongo.db.ideas.find().sort("idea", 1)
     return render_template("ideas.html", idea=idea)
 
 
 @app.route("/edit_ideas/<idea_id>", methods=["GET", "POST"])
 def edit_ideas(idea_id):
-    idea = mongo.db.idea.find_one({"_id": ObjectId(idea_id)})
+    idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
 
     if request.method == "POST":
         submit = {
@@ -168,17 +168,17 @@ def edit_ideas(idea_id):
             "invest": request.form.get("invest"),
             "created_by": session["user"]
         }
-        mongo.db.idea.update({"_id": ObjectId(idea_id)}, submit)
+        mongo.db.ideas.update({"_id": ObjectId(idea_id)}, submit)
         flash("Idea Successfully Updated")
         return redirect(url_for("get_ideas"))
 
-    idea = mongo.db.idea.find().sort("idea", 1)
+    idea = mongo.db.ideas.find().sort("idea", 1)
     return render_template("ideas.html", idea=idea)
 
 
 @app.route("/delete_ideas/<idea_id>")
 def delete_ideas(idea_id):
-    mongo.db.idea.delete_one({"_id": ObjectId(idea_id)})
+    mongo.db.ideas.delete_one({"_id": ObjectId(idea_id)})
     flash("Idea Successfully Deleted")
     return redirect(url_for("get_ideas"))
 

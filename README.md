@@ -46,6 +46,7 @@ HTML / CSS / JS / Python
 - Navbar takedn from the Materialize CSS framework
 #### Imagery
 - Logo imagery created by DALL.E 3 and the edited with MS Photo Editor
+- Images Sourced from pexels.com
 #### Typography
 - Montserrat is a versatile and modern font with good readibility
 - Roboto is a clean and widely used font that complements Montserrat well

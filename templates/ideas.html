@@ -10,13 +10,13 @@
                 <p>Describe the business idea in the form below</p>
             </div>
             <div class="card-action">
-                <form action="">
+                <form method="POST" action="{{ url_for('add_ideas') }}">
                     <label for="title">Idea Title</label>
-                    <input type="text" placeholder="Write about your idea here" name="title" minlength="10" pattern="^[a-zA-Z0-9]$">
+                    <input type="text" placeholder="Write about your idea here" name="title" minlength="10">
                     <label for="description">Description</label>
-                    <input type="text" placeholder="Write about your idea here" name="description" minlength="10" pattern="^[a-zA-Z0-9]$">
+                    <input type="text" placeholder="Write about your idea here" name="description" minlength="10">
                     <label for="valuation">Valuation</label>
-                    <input type="text" placeholder="Value in £" name="valuation" pattern="^[£,$,0-9]$">
+                    <input type="text" placeholder="Value in £" name="valuation">
                     <div class="switch">
                         <label>Seeking Investment
                             <input type="checkbox" name="invest">
@@ -24,7 +24,6 @@
                             YES
                         </label>
                     </div>
-
                     <button class="btn waves-effect waves-light" type="submit" name="sbt_idea">Submit
                         <i class="material-icons right">send</i>
                     </button>
