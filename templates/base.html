@@ -22,13 +22,14 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('about') }}">Home</a></li>
                     <li><a href="{{ url_for('search') }}">Search</a></li>
+                    <li><a href="{{ url_for('community') }}">Community</a></li>
                     {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
                     <li><a href="{{ url_for('ideas') }}">New Ideas</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                    {% endif %}
-                    <li><a href="{{ url_for('community') }}">Community</a></li>
+                    {% else %}
                     <li><a href="{{ url_for('login') }}">Login / Register</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -36,13 +37,14 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('about') }}">Home</a></li>
             <li><a href="{{ url_for('search') }}">Search</a></li>
+            <li><a href="{{ url_for('community') }}">Community</a></li>
             {% if session.user %}
             <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
             <li><a href="{{ url_for('ideas') }}">New Ideas</a></li>
             <li><a href="{{ url_for('logout') }}">Logout</a></li>
-            {% endif %}
-            <li><a href="{{ url_for('community') }}">Community</a></li>
+            {% else %}
             <li><a href="{{ url_for('login') }}">Login / Register</a></li>
+            {% endif %}
         </ul>
 
     </header>
