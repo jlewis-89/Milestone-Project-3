@@ -126,15 +126,15 @@ def search():
     return render_template("search.html")
 
 
-@app.route("/ideas")
-def ideas():
-    return render_template("ideas.html")
+# @app.route("/ideas")
+# def ideas():
+#     return render_template("ideas.html")
 
 
 @app.route("/get_ideas")
 def get_ideas():
-    idea = list(mongo.db.ideas.find().sort("date", -1))
-    return render_template("community.html", idea=idea)
+    ideas = list(mongo.db.ideas.find().sort("ideas", 1))
+    return render_template("community.html", ideas=ideas)
 
 
 @app.route("/add_ideas", methods=["GET", "POST"])
@@ -152,7 +152,7 @@ def add_ideas():
         return redirect(url_for("get_ideas"))
 
     categories = mongo.db.ideas.find().sort("idea", 1)
-    return render_template("ideas.html", idea=idea)
+    return render_template("add_ideas.html", idea=idea)
 
 
 @app.route("/edit_ideas/<idea_id>", methods=["GET", "POST"])
@@ -172,7 +172,7 @@ def edit_ideas(idea_id):
         return redirect(url_for("get_ideas"))
 
     idea = mongo.db.ideas.find().sort("idea", 1)
-    return render_template("ideas.html", idea=idea)
+    return render_template("community.html", idea=idea)
 
 
 @app.route("/delete_ideas/<idea_id>")

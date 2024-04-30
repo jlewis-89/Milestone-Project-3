@@ -24,8 +24,16 @@ Users will be able to:
 The platform will act like a online community of "Dragons Den" helping users to recieve feedback and promote thought and development of ideas for free from the community.
 
 ## Project Goals
+This project has been developed to meet the grading criteria of the Milestone 3 Project set out by Code Institute, and COBC.
+
+The website was developed with the goals of:
+- Performing full CRUD functionality in the ideas posting board
+- Performing CRUD functionality within user accounts, including registration editing and deletion.
 
 ## Developer Goals
+- To gain experience using the Flask mini-framework
+- To gain applicable knowledge and experience using then python language in web development
+- To gain experience using the materialize styles framework
 
 ## Tools & Technologies Used
 ### Software
@@ -39,11 +47,10 @@ Flask Framework
 HTML / CSS / JS / Python
 
 ## Design
-
 ### UI
 #### Wireframes
 #### Navigation
-- Navbar takedn from the Materialize CSS framework
+- Navbar taken from the Materialize CSS framework
 #### Imagery
 - Logo imagery created by DALL.E 3 and the edited with MS Photo Editor
 - Images Sourced from pexels.com
