@@ -19,9 +19,8 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/about")
-def about():
-    return render_template("about.html")
+def home():
+    return render_template("home.html")
 
 
 @app.route("/community")
@@ -135,7 +134,7 @@ def ideas():
 @app.route("/get_ideas")
 def get_ideas():
     idea = list(mongo.db.ideas.find().sort("date", -1))
-    return render_template("ideas.html", idea=idea)
+    return render_template("community.html", idea=idea)
 
 
 @app.route("/add_ideas", methods=["GET", "POST"])

@@ -2,7 +2,6 @@
 {% block content %}
 <h2><strong>Community</strong></h2>
 <p>Access all the community business ideas here</p>
-
 <ul>
     {% for idea in ideas %}
 
@@ -12,13 +11,13 @@
                 <div class="card-content white-text">
                     <span class="card-title">
                         <li>
-                            <h3>{{ idea.title }}</h3>
+                            <h3>{{ ideas.title }}</h3>
                         </li>
                     </span>
-                    <p>{{ idea.description }}</p>
+                    <p>{{ ideas.description }}</p>
                     <br>
-                    <span>{{ idea.valuation }}</span>
-                    <p>Posted by: {{ idea.created_by }}</p>
+                    <span>{{ ideas.valuation }}</span>
+                    <p>Posted by: {{ ideas.created_by }}</p>
                 </div>
                 <div class="card-action">
                     <a href="#">This is a link</a>
