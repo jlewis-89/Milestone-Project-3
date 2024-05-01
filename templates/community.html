@@ -14,25 +14,32 @@
                     </span>
                     <p>{{idea.description}}</p>
                     <br>
-                    <span>{{idea.valuation}}</span>
+                    <span>£{{idea.valuation}}</span>
                     <p>Posted by: {{idea.created_by}}</p>
+                    <div class="switch">
+                        <label>Seeking Investment
+                            {% if idea.invest == "on" %}
+                            <input disabled type="checkbox" checked>
+                            <span class="lever"></span>
+                            {% else %}
+                            <input disabled type="checkbox">
+                            <span class="lever"></span>
+                            {% endif %}
+                        </label>
+                    </div>
                 </div>
                 <div class="card-action">
                     {% if session.user == idea.created_by %}
-                    <a href="{{ url_for('edit_ideas', idea_id=idea._id) }}">Edit</a>
-                    <a href="{{ url_for('delete_ideas', idea_id=idea._id) }}">Delete</a>
+                    <a href="{{ url_for('edit_ideas', ideas_id=ideas._id) }}"><i
+                            class="material-icons">create</i>Edit</a>
+                    <a href="{{ url_for('delete_ideas', ideas_id=ideas._id) }}"><i
+                            class="material-icons">delete</i>Delete</a>
                     {% endif %}
                 </div>
             </div>
         </div>
     </div>
-    <div class="switch">
-        <label>Would you Invest
-            <input type="checkbox">
-            <span class="lever"></span>
-            YES
-        </label>
-    </div>
+
     {% endfor %}
 </ul>
 

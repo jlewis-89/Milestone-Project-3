@@ -140,24 +140,24 @@ def get_ideas():
 @app.route("/add_ideas", methods=["GET", "POST"])
 def add_ideas():
     if request.method == "POST":
-        idea = {
+        ideas = {
             "title": request.form.get("title"),
             "description": request.form.get("description"),
             "valuation": request.form.get("valuation"),
             "invest": request.form.get("invest"),
             "created_by": session["user"]
         }
-        mongo.db.ideas.insert_one(idea)
+        mongo.db.ideas.insert_one(ideas)
         flash("Idea Successfully Added")
         return redirect(url_for("get_ideas"))
 
-    categories = mongo.db.ideas.find().sort("idea", 1)
-    return render_template("add_ideas.html", idea=idea)
+    ideas = mongo.db.ideas.find().sort("ideas", 1)
+    return render_template("add_ideas.html", ideas=ideas)
 
 
-@app.route("/edit_ideas/<idea_id>", methods=["GET", "POST"])
-def edit_ideas(idea_id):
-    idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
+@app.route("/edit_ideas/<ideas_id>", methods=["GET", "POST"])
+def edit_ideas(ideas_id):
+    ideas = mongo.db.ideas.find_one({"_id": ObjectId(ideas_id)})
 
     if request.method == "POST":
         submit = {
@@ -167,17 +167,17 @@ def edit_ideas(idea_id):
             "invest": request.form.get("invest"),
             "created_by": session["user"]
         }
-        mongo.db.ideas.update({"_id": ObjectId(idea_id)}, submit)
+        mongo.db.ideas.update({"_id": ObjectId(ideas_id)}, submit)
         flash("Idea Successfully Updated")
         return redirect(url_for("get_ideas"))
 
-    idea = mongo.db.ideas.find().sort("idea", 1)
-    return render_template("community.html", idea=idea)
+    ideas = mongo.db.ideas.find().sort("ideas", 1)
+    return render_template("edit_ideas.html", ideas=ideas)
 
 
-@app.route("/delete_ideas/<idea_id>")
-def delete_ideas(idea_id):
-    mongo.db.ideas.delete_one({"_id": ObjectId(idea_id)})
+@app.route("/delete_ideas/<ideas_id>")
+def delete_ideas(ideas_id):
+    mongo.db.ideas.delete_one({"_id": ObjectId(ideas_id)})
     flash("Idea Successfully Deleted")
     return redirect(url_for("get_ideas"))
 
