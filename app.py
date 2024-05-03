@@ -151,7 +151,7 @@ def edit_ideas(ideas_id):
             "invest": request.form.get("invest"),
             "created_by": session["user"]
         }
-        mongo.db.ideas.update({"_id": ObjectId(ideas_id)}, submit)
+        mongo.db.ideas.update_one({"_id": ObjectId(ideas_id)}, submit)
         flash("Idea Successfully Updated")
         return redirect(url_for("get_ideas"))
 

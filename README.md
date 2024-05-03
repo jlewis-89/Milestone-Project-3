@@ -11,24 +11,19 @@ Repository []
 ## Purpose
 ### The purpose of the project is to develop a backend data based application using the Flask framework and MongoDB
 ### The project - Registered Interest
-The purpose of this website is to enable users to litmus test their business ideas via a community feedback process.
+The purpose of this website is to enable users to litmus test their business ideas via a community posting board.
 Users will be able to: 
 - Register a profile
 - Post their Business Ideas
-- Comment on other users ideas via the Q&A section
-- Upvote and Downvote ideas
-- Save ideas they are interested in
 - Edit and update their ideas but not other peoples
-- Choose whther they feel others ideas are investable or not
-
-The platform will act like a online community of "Dragons Den" helping users to recieve feedback and promote thought and development of ideas for free from the community.
+- Value their business ideas, and state whether seeking investment
 
 ## Project Goals
 This project has been developed to meet the grading criteria of the Milestone 3 Project set out by Code Institute, and COBC.
 
 The website was developed with the goals of:
 - Performing full CRUD functionality in the ideas posting board
-- Performing CRUD functionality within user accounts, including registration editing and deletion.
+- Allowing users to register, login and logout fo an account
 
 ## Developer Goals
 - To gain experience using the Flask mini-framework
@@ -38,7 +33,6 @@ The website was developed with the goals of:
 ## Tools & Technologies Used
 ### Software
 Figma
-DALL.E 3
 VS-Code
 ### Frameworks
 Materialize Framework
@@ -65,10 +59,7 @@ HTML / CSS / JS / Python
 As a user I want to be able to view all the ideas on the website
 As a user I want to be able to create my own ideas and post them to the website
 As a user I want to be able to edit and delete my ideas on the website
-As a user I would like to be able to edit and delete my user account
-As a user I would like to be able to change the email registered to my account
-As a user I would like to be the only onje who can edit or delte my ideas
-As a user I would like to be the only oner who can edit or delete my account
+As a user I would like to be the only one who can edit or delte my ideas
 
 ### Data Schema
 * Users Collection:
@@ -105,21 +96,43 @@ As a user I would like to be the only oner who can edit or delete my account
 
 ## Features
 The website features include:
-- Usere profiles to register and loginm
+- User profiles to register and login
 - Ideas to view the community of ideas
-- Profile to change any profile specific details
 - Create edit and delete users own ideas
+- Mobile Navbar provided via materialze framework
 
+## Features not yet implemented
+These are features that have not been developed as part of the project but if the project is to contiue development beyond the purpose of this course I may wish to implement:
+- Community feedback on ideas
+- Full account management CRUD functionality
+- Upvote and Downvote mechanism
+- Save and monitor favorite ideas
+- Contact Ideas creator via private message
 
 ## Testing
 ### Alpha Testing
-### Validators HTML/CSS/JS
+Testing for functionality of navigation, usability, UI and UX, and CRUD functionality regarding the ideas / community pages has been carried out by the developer during production and by a number of close friends and family after the development process./
 
--Python code has been checked for PEP8 compliance and formatted appropriately
+### Validators HTML/CSS/JS
+#### HTML Validator [https://validator.w3.org/]
+Output from the HTML validator is shown below, it is note worthy that all the errors realte specifically to the use of the Jinja templating language used throughout the web app and therefor cannot be rectified without impacting python functionality.
+
+#### CSS Validator [https://jigsaw.w3.org/css-validator/]
+Output from the CSS validator can be seen below
+
+#### JS Hint Validator [https://jshint.com/]
+Output from the JSHint Javascript validator can be seen below,
+
+#### Lighthouse Testing
+Lighthouse testing was performed on the web app, the results of which are shown below,
+
+
+It is worth noting the use of JPG images contributes to the lower performance and accessibility crtiteria due to the increase use of data to render the image on the page, unfortunately I do not have photo editing software capable of updating these images to a modern format, but his will be looked in to if the project is progressed further in the future.
+
+#### Python PEP8 Compliance
+Python code has been checked for PEP8 compliance and formatted appropriately via the use of an IDE extension.
 
 ### Bugs & Fixes
-
-## API's
 
 ## Deployment
 ### GitHub Pages
@@ -168,15 +181,60 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
-### Hosting via Heroku
-Log in to Heroku
+### Deploying Your App to Heroku
+#### Overview
+This guide outlines the steps to deploy your application from a GitHub repository to Heroku. Heroku makes it easy to host and manage your web applications in the cloud.
+
+#### Prerequisites
+Before you begin, ensure you have the following:
+
+- GitHub Account: Make sure you have a GitHub account where your code repository resides.
+- Heroku Account: If you haven’t already, sign up for a Heroku account at Heroku.
+- Heroku CLI: Install the Heroku Command Line Interface (CLI) on your local machine. You can download it from here.
+#### Steps to Deploy
+1. Set Up Your Heroku App
+Log in to your Heroku account using the Heroku CLI:
+heroku login
+
+Create a new Heroku app (if you haven’t already):
+heroku create <your-app-name>
+
+2. Configure GitHub Integration
+Go to your Heroku Dashboard and select your app.
+Navigate to the Deploy tab.
+Click on Connect to GitHub.
+Authenticate with your GitHub account.
+Search for your repository and connect it to your Heroku app.
+3. Manual Deploys
+To manually deploy your app, follow these steps:
+Push your code changes to the desired branch in your GitHub repo.
+In the Heroku Dashboard, go to the Deploy tab.
+Under Manual Deploy, select the branch you want to deploy and click Deploy Branch.
+4. Automatic Deploys
+For automatic deploys:
+In the Heroku Dashboard, go to the Deploy tab.
+Under Automatic Deploys, choose the branch you want to auto-deploy.
+Enable the option to wait for CI (Continuous Integration) to pass before deploying (if applicable).
+5. Review Apps (Optional)
+Heroku also supports Review Apps, which create a temporary app for each pull request. This allows you to test changes before merging them into the main branch.
+6. Access Your Deployed App
+Once deployed, your app will be accessible via the Heroku app URL (e.g., https://<your-app-name>.herokuapp.com).
+Troubleshooting
+If you encounter any issues during deployment, check the Heroku logs using:
+heroku logs --tail
 
 ## Credit
-Logo generated via DALL.E 3 AI
 ### Acknowledgement
+Code Institute Walkthrough Projects
 ### Resources
+- Code Institute
+- MongoDB Documentation
+- OPEN AI's Chat-GPT for bug fixes
 ### Assets
+Images Supplied by Pexels
+Icons Supplied via Materialize framework
 ### Code Re-use
+Code Institute - MongoDB Task Manager
 ### Licensing
-
+None
 ## Status
