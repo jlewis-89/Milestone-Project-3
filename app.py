@@ -19,6 +19,7 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/home")
 def home():
     return render_template("home.html")
 
@@ -89,8 +90,9 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/edit_user/<username>", methods=["GET", "POST"])
+@app.route("/edit_user/<username_id>", methods=["GET", "POST"])
 def edit_user(username):
+    # username = mongo.db.ideas.find_one({"_id": ObjectId(users_id)})
     if request.method == "POST":
         submit = {
             "username": request.form.get("username").lower(),
@@ -124,11 +126,6 @@ def logout():
 @app.route("/search")
 def search():
     return render_template("search.html")
-
-
-# @app.route("/ideas")
-# def ideas():
-#     return render_template("ideas.html")
 
 
 @app.route("/get_ideas")

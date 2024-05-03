@@ -10,29 +10,33 @@
                 <p>Update the business idea in the form below</p>
             </div>
             <div class="card-action">
-
                 <form method="POST" action="{{ url_for('edit_ideas', ideas_id=ideas._id) }}">
                     <label for="title">Idea Title</label>
-                    <input type="text" placeholder="{{ ideas.title }}" name="title" minlength="5">{{ idea.title }}
+                    <input type="text" value="{{ ideas.title }}" id="title" name="title" minlength="5">{{
+                    ideas.title }}
                     <label for="description">Description</label>
-                    <input type="text" placeholder="{{ ideas.description }}" name="description" minlength="10">
+                    <input type="text" value="{{ ideas.description }}" id="description" name="description"
+                        minlength="10">
                     <label for="valuation">Valuation</label>
-                    <input type="text" placeholder="£{{ ideas.valuation }}" name="valuation">
+                    <input type="text" value="£{{ ideas.valuation }}" id="valuation" name="valuation">
                     <div class="switch">
                         <label>Seeking Investment
-                            <input type="checkbox" name="invest" placeholder="{{ ideas.invest }}">
+                            <input type="checkbox" name="invest" id="invest" value="{{ ideas.invest }}">
                             <span class="lever"></span>
                             YES
                         </label>
                     </div>
-                    <div class="row col s12 center-align">
-                        <a href="{{url_for('get_ideas')}}" class="btn-large red text-shadow">Cancel</a>
-                    </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="{{ url_for('edit_ideas') }}">Submit
-                        <i class="material-icons right">send</i>
-                    </button>
-                </form>
+                    <div class="row">
+                        <div class="col s6">
+                            <a href="{{url_for('get_ideas')}}" class="btn waves-effect waves-light red">Cancel<i
+                                    class="material-icons right">remove_circle</i></a>
 
+                            <button class="col s6 btn waves-effect waves-light" type="submit">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
