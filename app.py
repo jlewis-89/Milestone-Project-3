@@ -107,25 +107,12 @@ def edit_user(username):
     return render_template("edit_user.html", user=user)
 
 
-@app.route("/delete_user/<username>")
-def delete_user(username):
-    mongo.db.user.delete_one({"username": username})
-    flash("Profile Successfully Deleted")
-    session.pop("user")
-    return redirect(url_for("register"))
-
-
 @app.route("/logout")
 def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
-
-
-@app.route("/search")
-def search():
-    return render_template("search.html")
 
 
 @app.route("/get_ideas")
@@ -187,11 +174,3 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-
-
-# MONGODB CRUD OPERATIONS
-
-# Create - db.coll.insertone({name:"jon"}) && db.coll.insertmany([{name:"jon"}, {name:"jane"}])
-# Read - db.coll.findone({name:"jon"}) && db.coll.find({name:"jon"})
-# Update - db.coll.updateone({name:"jon"}, {$set:{name:"jonny"}}) && db.coll.updatemany({name:"jon"}, {$set:{name:"jonny"}})
-# Delete - db.coll.deleteone({name:"jonny"}) && db.coll.deletemany({name:"jonny"})

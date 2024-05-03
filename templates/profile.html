@@ -1,17 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row center">
+<div class="row center-align">
     <div class="col s12 m6">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <span class="card-title">
-                    <h2>{{ username }}'s Profile </h2>
-                </span>
-                <a href="">Show all Ideas</a>
-                <a href="">Add New Idea</a>
-            </div>
-        </div>
+        <h2>{{ username }}'s Profile </h2>
+        <a class="btn" href="{{ url_for('get_ideas') }}">Show all Ideas</a>
+        <a class="btn" href="{{ url_for('add_ideas') }}">Add New Idea</a>
     </div>
 </div>
-
 {% endblock %}
