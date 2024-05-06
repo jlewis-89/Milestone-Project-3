@@ -2,28 +2,76 @@
 
 ## Code Institute Milestone 3 Backend Development Project
 
-Live Site []
+[Live Site](https://registered-interest-7a4a9a21b59f.herokuapp.com/)
 
-Repository []
+[Repository](https://github.com/jlewis-89/Milestone-Project-3/)
 
-## Table of Content
+## Table of Contents
+- [MSP-3 Registered Interest](#msp-3-registered-interest)
+  - [Code Institute Milestone 3 Backend Development Project](#code-institute-milestone-3-backend-development-project)
+  - [Table of Contents](#table-of-contents)
+  - [Purpose](#purpose)
+    - [The project - Registered Interest](#the-project---registered-interest)
+  - [Project Goals](#project-goals)
+  - [Developer Goals](#developer-goals)
+  - [Tools \& Technologies Used](#tools--technologies-used)
+    - [Software](#software)
+    - [Frameworks](#frameworks)
+  - [Design](#design)
+    - [UI](#ui)
+      - [Wireframes](#wireframes)
+      - [Navigation](#navigation)
+      - [Imagery](#imagery)
+      - [Typography](#typography)
+      - [Colour scheme - WebAIM Accessibility](#colour-scheme---webaim-accessibility)
+    - [UX](#ux)
+    - [Data Schema](#data-schema)
+      - [JSON](#json)
+  - [Features](#features)
+  - [Features not yet implemented](#features-not-yet-implemented)
+  - [Testing](#testing)
+    - [Alpha Testing](#alpha-testing)
+    - [Validators HTML/CSS/JS](#validators-htmlcssjs)
+      - [HTML Validator \[https://validator.w3.org/\]](#html-validator-httpsvalidatorw3org)
+      - [CSS Validator \[https://jigsaw.w3.org/css-validator/\]](#css-validator-httpsjigsaww3orgcss-validator)
+      - [JS Hint Validator \[https://jshint.com/\]](#js-hint-validator-httpsjshintcom)
+      - [Lighthouse Testing](#lighthouse-testing)
+      - [Python PEP8 Compliance](#python-pep8-compliance)
+    - [Bugs \& Fixes](#bugs--fixes)
+  - [Deployment](#deployment)
+    - [GitHub Pages](#github-pages)
+    - [Forking the GitHub Repository](#forking-the-github-repository)
+    - [Making a Local Clone](#making-a-local-clone)
+    - [Deploying Your App to Heroku](#deploying-your-app-to-heroku)
+      - [Overview](#overview)
+      - [Prerequisites](#prerequisites)
+      - [Steps to Deploy](#steps-to-deploy)
+  - [Credit](#credit)
+    - [Acknowledgement](#acknowledgement)
+    - [Resources](#resources)
+    - [Assets](#assets)
+    - [Code Re-use](#code-re-use)
+    - [Licensing](#licensing)
+  - [Status](#status)
+
 
 ## Purpose
-### The purpose of the project is to develop a backend data based application using the Flask framework and MongoDB
+The purpose of the project is to develop a backend data based application using the Flask framework and MongoDB and to include full CRUD functionality.
+
 ### The project - Registered Interest
 The purpose of this website is to enable users to litmus test their business ideas via a community posting board.
 Users will be able to: 
 - Register a profile
 - Post their Business Ideas
 - Edit and update their ideas but not other peoples
-- Value their business ideas, and state whether seeking investment
+- Value their business ideas, and state whether they are currently seeking investment
 
 ## Project Goals
 This project has been developed to meet the grading criteria of the Milestone 3 Project set out by Code Institute, and COBC.
 
 The website was developed with the goals of:
 - Performing full CRUD functionality in the ideas posting board
-- Allowing users to register, login and logout fo an account
+- Allowing users to register, login and logout of an account
 
 ## Developer Goals
 - To gain experience using the Flask mini-framework
@@ -43,8 +91,11 @@ HTML / CSS / JS / Python
 ## Design
 ### UI
 #### Wireframes
+![Wireframes](static/assets/images/Wireframe.png)
 #### Navigation
-- Navbar taken from the Materialize CSS framework
+- Navbar taken from the Materialize CSS framework.
+- Sitemap was built using figma tot ry and identify the maximum number of pages and understand the user requirements. This has been reduced due to restrictions on the project.
+![Site map](<MSP - 3 - Web Development Template Sitemap.png>)
 #### Imagery
 - Logo imagery created by DALL.E 3 and the edited with MS Photo Editor
 - Images Sourced from pexels.com
@@ -62,6 +113,7 @@ As a user I want to be able to edit and delete my ideas on the website
 As a user I would like to be the only one who can edit or delte my ideas
 
 ### Data Schema
+MongoDb was selected to provide the backend data storage due to the ease of use and available resources. I was also better able to integrate MongoDB into my IDE making it a better development choice.
 * Users Collection:
 * Attributes:
 - username: A unique identifier for each user.
@@ -75,7 +127,6 @@ As a user I would like to be the only one who can edit or delte my ideas
 - invest: Would you invest in the idea Yes or No
 
 #### JSON
-
 {
   "users": [
     {
@@ -111,28 +162,45 @@ These are features that have not been developed as part of the project but if th
 
 ## Testing
 ### Alpha Testing
-Testing for functionality of navigation, usability, UI and UX, and CRUD functionality regarding the ideas / community pages has been carried out by the developer during production and by a number of close friends and family after the development process./
+Testing for functionality of navigation, usability, UI and UX, and CRUD functionality regarding the ideas / community pages has been carried out by the developer during production and by a number of close friends and family after the development process.
+
+User story testing was conducted on the final project steps and has been verified to comply with the original statments;
+Users are able to register an account, login and out. 
+Users can add, edit and delete their own ideas but not other users. 
+Users can view all ideas on the community page.
+
+Feedback suggest the website looks abit plain - As the developer I accept this feedback as fair, but have chosen to invest more time in the functionailty than the appearance as the project timeline did not allow for further development of frontend appearances, this is something that could be developed oin further if the project is continued in the future.
 
 ### Validators HTML/CSS/JS
 #### HTML Validator [https://validator.w3.org/]
-Output from the HTML validator is shown below, it is note worthy that all the errors realte specifically to the use of the Jinja templating language used throughout the web app and therefor cannot be rectified without impacting python functionality.
+Output from the HTML validator is shown below, it is note worthy that all the errors flagged by the validator relate specifically to the use of the Jinja templating language used throughout the web app and therefor cannot be rectified without impacting python functionality.
+![HTML VAlidator](<HTML Validator - Base.png>)
+No further testing beyond functionality hsa been performed.
 
 #### CSS Validator [https://jigsaw.w3.org/css-validator/]
 Output from the CSS validator can be seen below
+![CSS Validator](<CSS Validator.png>)
+The use of the materialize framework meant that the styles.css file remained small. With no furhter errors found there was no more testing carried out.
 
 #### JS Hint Validator [https://jshint.com/]
-Output from the JSHint Javascript validator can be seen below,
+Output from the JSHint Javascript validator can be seen below:
+![JSHint](<JSHINT Validator.png>)
+The use of a single JQuery function to enable the navbar features is the only use of JS within this porject and therefore no further testing, beyond functionality is required.
 
 #### Lighthouse Testing
-Lighthouse testing was performed on the web app, the results of which are shown below,
+Lighthouse testing was performed on the web app the results of which are shown below:
+![Lighthouse Testing](<Lighthouse Testing.png>)
 
-
-It is worth noting the use of JPG images contributes to the lower performance and accessibility crtiteria due to the increase use of data to render the image on the page, unfortunately I do not have photo editing software capable of updating these images to a modern format, but his will be looked in to if the project is progressed further in the future.
+The use of JPG images contributes to the lower performance and accessibility crtiteria due to the increase use of data to render the image on the page, unfortunately no access to photo editing software capable of updating these images to a modern format was available, but this would be rectified if the project is progressed further in the future.
 
 #### Python PEP8 Compliance
 Python code has been checked for PEP8 compliance and formatted appropriately via the use of an IDE extension.
 
 ### Bugs & Fixes
+- Numerous bugs where encountered when building the CRUD functionality, the most time demanding ones have been listed below.
+- URL Not found for edit_users FIX: Corrected typo in route
+- Update attributes not rendering on page FIX: Changed variable name as conflict was occuring
+- Update error due to the use of update_one FIX: Used the Mongo method replace_one instead as this does not require variable to be pre-fixed with "$".
 
 ## Deployment
 ### GitHub Pages
@@ -226,6 +294,8 @@ heroku logs --tail
 ## Credit
 ### Acknowledgement
 Code Institute Walkthrough Projects
+My mentor Rohit for his input and guidance
+COBC for their resources and guidance
 ### Resources
 - Code Institute
 - MongoDB Documentation
@@ -238,3 +308,4 @@ Code Institute - MongoDB Task Manager
 ### Licensing
 None
 ## Status
+Pending Review
