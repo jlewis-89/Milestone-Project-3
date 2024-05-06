@@ -11,9 +11,9 @@
             <div class="card-action">
                 <form method="POST" action="{{ url_for('add_ideas') }}">
                     <label for="title">Idea Title</label>
-                    <input type="text" placeholder="Write about your idea here" name="title" minlength="10">
+                    <input type="text" placeholder="Write about your idea here" name="title" minlength="5">
                     <label for="description">Description</label>
-                    <input type="text" placeholder="Write about your idea here" name="description" minlength="10">
+                    <input type="text" placeholder="Write about your idea here" name="description" minlength="5">
                     <label for="valuation">Valuation</label>
                     <input type="text" placeholder="Value in £" name="valuation">
                     <div class="switch">
