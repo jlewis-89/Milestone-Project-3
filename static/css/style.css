@@ -22,14 +22,24 @@ body {
     flex-direction: column;
     font-family: "Monntserrat", sans-serif;
     background-color: #eceff1;
+    margin: auto;
 }
 
 main {
     flex: 1 0 auto;
+    margin: auto;
 }
 
 .page-footer {
     background-color: #001f3f;
     color: white;
     padding: 20px 0;
+}
+
+button {
+    margin: 5px;
+}
+
+.btn {
+    margin: 5px;
 }
